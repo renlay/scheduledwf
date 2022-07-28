@@ -66,6 +66,7 @@
 		<aws-jdk-version>1.11.86</aws-jdk-version>
 		<open-api-verion>1.4.8</open-api-verion>
 		<mysql-test-container>1.15.1</mysql-test-container>
+        <postgres-test-container>1.15.1</postgres-test-container>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -98,10 +99,11 @@
 	<modules>
 		<module>scheduledwf-core</module>
 		<module>scheduled-mysql-persistence</module>
+        <module>scheduled-postgres-persistence</module>
 		<module>scheduledwf-resources</module>
 		<module>scheduledwf-server</module>
 		<module>scheduledwf-module</module>
-	</modules>
+    </modules>
 
 	<dependencyManagement>
 		<dependencies>
@@ -115,6 +117,11 @@
 				<artifactId>scheduled-mysql-persistence</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>io.github.jas34</groupId>
+                <artifactId>scheduled-postgres-persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>io.github.jas34</groupId>
 				<artifactId>scheduledwf-resources</artifactId>
