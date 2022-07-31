@@ -1,6 +1,6 @@
 package io.github.jas34.scheduledwf.dao.postgres;
 
-import com.netflix.conductor.mysql.MySQLConfiguration;
+import com.netflix.conductor.postgres.PostgresConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +14,7 @@ import java.util.Properties;
 /**
  * @author Jasbir Singh
  */
-public class TestConfiguration implements MySQLConfiguration {
+public class TestConfiguration implements PostgresConfiguration {
 
     private static final Logger logger = LoggerFactory.getLogger(TestConfiguration.class);
     private static final Map<String, String> testProperties = new HashMap<>();

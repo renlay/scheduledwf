@@ -1,5 +1,6 @@
 package io.github.jas34.scheduledwf.config;
 
+import com.netflix.conductor.postgres.PostgresWorkflowModule;
 import org.apache.commons.lang3.StringUtils;
 
 import com.google.inject.AbstractModule;
@@ -31,7 +32,9 @@ public class ScheduledWfServerModule extends AbstractModule {
 
 		} else if (Configuration.DB.MYSQL.name().equals(database)) {
 			install(new MySQLPersistenceModule());
-		} else {
+        } else if (Configuration.DB.POSTGRES.name().equals(database)) {
+            install(new PostgresWorkflowModule());
+        } else {
 			throw new UnsupportedOperationException(
 					"Only MEMORY AND MYSQL persistence supported for scheduled workflow module.");
 		}
