@@ -52,6 +52,14 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>central</id>
+            <name>bintray</name>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
 	</repositories>
 
 	<properties>
@@ -87,6 +95,7 @@
 	<modules>
 		<module>scheduledwf-core</module>
 		<module>scheduled-mysql-persistence</module>
+        <module>scheduled-postgres-persistence</module>
 		<module>scheduledwf-resources</module>
 		<module>scheduledwf-server</module>
 		<module>scheduledwf-module</module>
@@ -104,6 +113,11 @@
 				<artifactId>scheduled-mysql-persistence</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>io.github.jas34</groupId>
+                <artifactId>scheduled-postgres-persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>io.github.jas34</groupId>
 				<artifactId>scheduledwf-resources</artifactId>
@@ -223,11 +237,13 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.7.9</version>
+				<version>0.8.2</version>
 				<configuration>
 					<excludes>
 						<exclude>**/MySQLPersistenceModule.class</exclude>
+                        <exclude>**/PostgresPersistenceModule.class</exclude>
 						<exclude>**/dao/mysql/**</exclude>
+                        <exclude>**/dao/postgres/**</exclude>
 						<exclude>**/config/**</exclude>
 						<exclude>**/metadata/**</exclude>
 						<exclude>**/run/**</exclude>
@@ -244,6 +260,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 	</build>
 </project>
