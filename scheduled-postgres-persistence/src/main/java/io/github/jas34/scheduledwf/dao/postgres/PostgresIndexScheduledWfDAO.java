@@ -6,9 +6,11 @@ import java.util.Optional;
 import javax.sql.DataSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.netflix.conductor.common.run.SearchResult;
-
 import com.netflix.conductor.dao.postgres.PostgresBaseDAO;
+
 import io.github.jas34.scheduledwf.dao.IndexScheduledWfDAO;
 import io.github.jas34.scheduledwf.run.ManagerInfo;
 import io.github.jas34.scheduledwf.run.ScheduledWfExecData;
@@ -17,9 +19,11 @@ import io.github.jas34.scheduledwf.run.ScheduledWorkFlow;
 /**
  * @author Jasbir Singh
  */
+@Singleton
 public class PostgresIndexScheduledWfDAO extends PostgresBaseDAO implements IndexScheduledWfDAO {
 
-    public PostgresIndexScheduledWfDAO(ObjectMapper om, DataSource dataSource) {
+    @Inject
+    PostgresIndexScheduledWfDAO(ObjectMapper om, DataSource dataSource) {
         super(om, dataSource);
     }
 

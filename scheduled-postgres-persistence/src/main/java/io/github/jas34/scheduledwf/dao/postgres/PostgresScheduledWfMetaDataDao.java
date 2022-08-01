@@ -11,15 +11,19 @@ import javax.sql.DataSource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
-
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import com.netflix.conductor.dao.postgres.PostgresBaseDAO;
 import com.netflix.conductor.dao.postgres.Query;
+
 import io.github.jas34.scheduledwf.dao.ScheduledWfMetadataDAO;
 import io.github.jas34.scheduledwf.metadata.ScheduleWfDef;
 
+@Singleton
 public class PostgresScheduledWfMetaDataDao extends PostgresBaseDAO implements ScheduledWfMetadataDAO {
 
-    public PostgresScheduledWfMetaDataDao(ObjectMapper om, DataSource dataSource) {
+    @Inject
+    protected PostgresScheduledWfMetaDataDao(ObjectMapper om, DataSource dataSource) {
         super(om, dataSource);
     }
 
