@@ -57,7 +57,7 @@
 	<properties>
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
-		<conductor-version>3.3.0</conductor-version>
+		<conductor-version>3.3.6</conductor-version>
 		<wisp-version>2.2.0</wisp-version>
 		<cron-utils-version>8.0.0</cron-utils-version>
 		<redisson-version>3.11.4</redisson-version>
